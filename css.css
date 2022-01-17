@@ -390,6 +390,22 @@ html {
     font-size: 15px;
 }
 
+:root {
+    --input-placeholder: #A2A7B8;
+    --border-standart: #CED0D6;
+    --border-hover: #686868;
+    --border-focus: #A100FF;
+    --border-disabled: #e9ebf4;
+    --value-hover: #F5F6FA;
+    --input-text: #2E2E2E;
+    --transition-fast: 150ms ease-in;
+    --transition-standart: 250ms ease-in;
+    --tooltype-bg: #000000;
+    --input-error: #FE6963;
+    --disabled-color: #F5F6FA;
+    --hover-main: #e5e7ee;
+}
+
 .icon-s svg {
     width: 1.4rem;
     height: 1.4rem;
@@ -665,19 +681,46 @@ html {
 }
 
 [data-type="info"]:hover~[data-content="info"],
-.error~.input-tooltype [data-type="error"]~[data-content="error"],
-.drag-drop-error .input-tooltype [data-type="error"]~[data-content="error"] {
+.drag-drop-error .input-tooltype [data-type="error"]~[data-content="error"],
+[data-type="error"]:hover~[data-content="error"] {
     transform: translate(0, 0);
 }
 
 [data-type="info"]:hover~[data-content="info"],
 .can-clean .clear-input,
 .error~.input-tooltype [data-type="error"],
-.error~.input-tooltype [data-type="error"]~[data-content="error"],
 .drag-drop-error .input-tooltype [data-type="error"],
-.drag-drop-error .input-tooltype [data-type="error"]~[data-content="error"] {
+.drag-drop-error .input-tooltype [data-type="error"]~[data-content="error"],
+[data-type="error"]:hover~[data-content="error"] {
     opacity: 1;
     visibility: visible;
+}
+
+.error~.input-tooltype [data-type="error"]~[data-content="error"] {
+    animation: ShowHideError 2000ms ease-in alternate;
+}
+
+@keyframes ShowHideError {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(0, 0.5rem);
+    }
+    10% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0rem);
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0rem);
+    }
+    100% {
+        opacity: 0;
+        visibility: visible;
+        transform: translate(0, 0.5rem);
+    }
 }
 
 [data-type="info"]:hover svg path {
@@ -723,8 +766,9 @@ html {
     margin-top: 2rem;
 }
 
-.input-disabled .form-input input:hover {
-    border-color: var(--border-standart);
+.input-disabled .form-input input:hover,
+.input-disabled .form-input input {
+    border-color: var(--border-disabled);
 }
 
 .input-disabled .form-input input {
@@ -744,13 +788,428 @@ html {
     position: absolute;
     background: #fff;
     width: 100%;
-    height: 56%;
+    height: 57%;
     left: 0;
     z-index: -1;
 }
 
-.inputs-row {
-    max-width: 20rem;
+
+/* for-drop-down */
+
+.input-drop .input-icon .icon {
+    transition: var(--transition-fast);
+    transition-property: transform;
+}
+
+.input-drop input {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.drop-values {
+    position: absolute;
+    top: 100%;
+    width: calc(100% - 1.74rem);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    padding: 0.5rem 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(0, 0.75rem);
+    transition: var(--transition-fast);
+    transition-property: visibility, opacity, transform;
+    z-index: 20;
+    background: white;
+}
+
+.input-drop .input-label,
+.drop-values,
+.input-icon {
+    user-select: none;
+    pointer-events: none;
+}
+
+.values-show .input-label,
+.input-focused .input-label {
+    transform: translate(-0.2rem, -2.4rem) scale(0.8);
+    max-width: 100%;
+}
+
+.input-small.values-show .input-label {
+    transform: translate(0rem, -2rem) scale(0.8);
+    max-width: 100%;
+}
+
+.values-show .drop-values {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+    user-select: all;
+    pointer-events: all;
+}
+
+.input-drop.values-show .input-icon .icon {
+    transform: rotate(-180deg);
+}
+
+.drop-value {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    color: var(--input-placeholder);
+    transition: var(--transition-fast);
+    transition-property: background, color;
+    user-select: none;
+}
+
+.value-name {
+    font-size: 0.95rem;
+}
+
+.drop-value:hover {
+    background: var(--value-hover);
+    color: var(--input-text);
+}
+
+
+/* for-timepicker */
+
+.timepicker-input .drop-values,
+.date-input .drop-values,
+.datepicker .drop-values {
+    width: max-content;
+    right: 2.5rem;
+}
+
+.time-values {
+    display: flex;
+}
+
+.time-hours+.time-minutes {
+    margin-left: 1rem;
+}
+
+.time-hours .time-els,
+.time-minutes .time-els {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.time-hours .time-els {
+    grid-template-columns: 1fr 1fr;
+}
+
+.time-minutes .time-els {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.time-label,
+.time-el {
+    user-select: none;
+}
+
+.time-label {
+    color: var(--input-placeholder);
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.time-el {
+    background: var(--disabled-color);
+    padding: 0.35rem;
+    font-style: normal;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: var(--transition-fast);
+    transition-property: background, color;
+    border: none;
+    cursor: pointer;
+}
+
+.time-el:hover {
+    background: var(--hover-main);
+}
+
+.time-el.selected {
+    background: var(--border-focus);
+    color: white;
+}
+
+.timepicker {
+    padding: 0.5rem;
+}
+
+
+/* textarea */
+
+.auto-height.text-aria textarea,
+.auto-height,
+.auto-height .input-content,
+.auto-height .form-input {
+    height: 100%;
+}
+
+.text-aria textarea {
+    background: transparent;
+    padding-right: 0.9rem;
+    display: flex;
+}
+
+.text-aria .input-content {
+    align-items: flex-start;
+}
+
+.text-aria .form-input.error textarea:hover {
+    border-color: transparent;
+}
+
+.text-aria .input-tooltype {
+    margin-top: 0.75rem;
+}
+
+.text-aria .input-label {
+    top: 1.75rem;
+}
+
+.text-aria.has-value .input-label {
+    transform: translate(-0.2rem, -2.4rem) scale(0.8);
+}
+
+.text-aria textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.text-aria .clear-input {
+    bottom: 0.5rem;
+    top: auto;
+    right: -2.2rem;
+    transform: translate(0, 0);
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+@media(min-width:1024px) {
+    .text-aria textarea::-webkit-scrollbar,
+    .search-input .drop-value-inner::-webkit-scrollbar,
+    .input-drop .drop-value-inner::-webkit-scrollbar {
+        width: 7px;
+    }
+    .text-aria textarea::-webkit-scrollbar-track,
+    .search-input .drop-value-inner::-webkit-scrollbar-track,
+    .input-drop .drop-value-inner::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .text-aria textarea::-webkit-scrollbar-thumb,
+    .search-input .drop-value-inner::-webkit-scrollbar-thumb,
+    .input-drop .drop-value-inner::-webkit-scrollbar-thumb {
+        background: #C4C4C4;
+        transition: 150ms ease-in;
+        border-radius: 10px;
+        transition-property: background;
+    }
+    .text-aria textarea::-webkit-scrollbar-thumb:hover,
+    .search-input .drop-value-inner::-webkit-scrollbar-thumb:hover,
+    .input-drop .drop-value-inner::-webkit-scrollbar-thumb:hover {
+        background: #B3B3B3;
+        cursor: default;
+    }
+}
+
+
+/* search-input */
+
+.search-input input {
+    cursor: text;
+}
+
+.search-input .drop-value-inner,
+.input-drop .drop-value-inner {
+    max-height: 15rem;
+    overflow: auto;
+    user-select: none;
+}
+
+.search-input .value-name {
+    color: var(--input-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.search-input .value-role {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-input .value-role,
+.search-input .value-email,
+.search-input .error-value-text {
+    font-size: 0.85rem;
+}
+
+.search-input .error-value-text {
+    color: var(--input-error);
+}
+
+.search-input .drop-values {
+    padding: 0;
+}
+
+.search-input .drop-value:last-child {
+    margin-bottom: 0.5rem;
+}
+
+.search-input .drop-value:first-child {
+    margin-top: 0.5rem;
+}
+
+.drop-value.error-value,
+.drop-value.error-value:hover {
+    background: #fff7f6;
+    color: var(--input-placeholder);
+    pointer-events: none;
+}
+
+.drop-value.error-value:hover .value-role,
+.drop-value.error-value:hover .value-email {
+    color: var(--input-placeholder);
+}
+
+.search-input .drop-value+.drop-value {
+    border-top: 1px solid #E9E9E9;
+}
+
+
+/* for-datepicker */
+
+.date-unputs {
+    transition: var(--transition-fast);
+    transition-property: opacity;
+    opacity: 0;
+}
+
+.input-focused .date-unputs {
+    opacity: 1;
+}
+
+.date-unputs,
+.date-unputs input {
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    padding: 0;
+    position: relative;
+}
+
+.date-unputs::before {
+    content: '';
+    position: absolute;
+    bottom: -.65rem;
+    height: 2px;
+    width: 0;
+    left: 0;
+    background: var(--border-focus);
+    transition: var(--transition-fast);
+    transition-property: width, left;
+    z-index: 11;
+}
+
+.first-focus .date-unputs::before {
+    width: calc(50% - 1.25rem);
+}
+
+.second-focus .date-unputs::before {
+    left: calc(50% + 1.25rem);
+    width: calc(50% - 1.25rem);
+}
+
+.date-unputs input::placeholder {
+    font-size: 1rem;
+    color: var(--input-placeholder);
+}
+
+.date-unputs .icon {
+    margin: 0 0.75rem;
+}
+
+.datepicker .drop-values {
+    right: auto;
+    left: 0;
+}
+
+
+/* for radio-input */
+
+.radio-input .radio-group {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    flex-direction: column;
+}
+
+.radio-input .input-content {
+    align-items: flex-start;
+}
+
+.label-title {
+    color: var(--input-text);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: -0.5rem;
+    margin-left: -0.4rem;
+    background: white;
+    padding: 0rem 0.4rem 0rem 0.4rem;
+}
+
+.label-l {
+    font-size: 0.95rem;
+    display: flex;
+}
+
+.group-label+.radio-group {
+    margin-top: 0.75rem;
+}
+
+.radio-input .input-wrapper {
+    margin: 0;
+    margin-left: -0.25rem;
+}
+
+.radio-input .input-wrapper+.input-wrapper {
+    margin-top: 0.25rem;
+}
+
+.group-label .input-tooltype {
+    height: 1.5rem;
+}
+
+.radio-input .form-input {
+    padding-top: 0;
+    padding-right: 0.9rem;
+}
+
+.to-faq {
+    margin-top: 0.15rem;
+    margin-right: 1.15rem;
+}
+
+.input-small .drop-values {
+    right: 1.75rem;
+}
+
+@media screen and (max-width:425px) {
+    .date-input .drop-values .calendar-header {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.container {
+    max-width: 25rem;
     margin: 0 auto;
     padding-top: 4rem;
 }

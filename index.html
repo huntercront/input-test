@@ -13,65 +13,311 @@
 
   <div class="container">
 
-   <div class="inputs-row">
+   <div class="reports-form">
+    <div class="container">
+     <div class="row">
+      <div class="form-col c-4">
 
-    <div class="input input-disabled">
-     <div class="input-content">
-      <div class="form-input">
-       <input type="text" name="text" id="structure" autocomplete="off" placeholder="&nbsp;" value="Иванов Иван" disabled="">
-       <label class="input-label" for="structure">Твое Имя</label>
-       <span class="focus"></span>
-       <button class="clear-input button-input">
+       <div class="input search-input input-drop">
+        <div class="input-content">
+         <div class="form-input">
+          <input type="text" name="text" id="appruver" autocomplete="off" placeholder="&nbsp;" value="">
+          <label class="input-label" for="appruver">Подтверждающий заявку</label>
+          <span class="focus"></span>
+          <button class="clear-input button-input">
 										<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
-												<circle cx="12" cy="12" r="12" fill="#F5F6FA"></circle>
-												<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2" d="m8 8 8.2 8.2M16.2 8 8 16.2">
-												</path>
+												<circle cx="12" cy="12" r="12" fill="#F5F6FA" />
+												<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2"
+													d="m8 8 8.2 8.2M16.2 8 8 16.2" />
 											</svg></div>
 									</button>
+         </div>
+         <div class="input-tooltype">
+          <div class="tooltype-icon" data-type="info">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M9 9a3 3 0 0 1 6 1c0 2-3 3-3 3M12 17h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-icon" data-type="error">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path fill="#FE6963" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 8v4M12 16h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-content" data-content="info">Руководитель твоего проекта Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.</div>
+          <div class="tooltype-content" data-content="error">Введи имя руководителя</div>
+         </div>
+         <div class="drop-values">
+          <div class="drop-value-inner">
+           <div class="drop-value error-value">
+            <div class="value-name">Германанов Константин</div>
+            <div class="value-role" title="Ведущий специалист по разработке и поддержке программного обеспечения">
+             Ведущий специалист по разработке и поддержке программного обеспечения</div>
+            <div class="value-email" title="k.germanov@accenture.com">
+             <span>&lt;</span>k.germanov@accenture.com<span>&gt;</span>
+            </div>
+            <div class="error-value-text">Содрудник другого юридического лица</div>
+           </div>
+           <div class="drop-value">
+            <div class="value-name">Германанов Константин</div>
+            <div class="value-role" title="Ведущий специалист по разработке и поддержке программного обеспечения">
+             Ведущий специалист по разработке и поддержке программного обеспечения</div>
+            <div class="value-email" title="k.germanov@accenture.com">
+             <span>&lt;</span>k.germanov@accenture.com<span>&gt;</span>
+            </div>
+           </div>
+           <div class="drop-value">
+            <div class="value-name">Германанов Константин</div>
+            <div class="value-role" title="Ведущий специалист по разработке и поддержке программного обеспечения">
+             Ведущий специалист по разработке и поддержке программного обеспечения</div>
+            <div class="value-email" title="k.germanov@accenture.com">
+             <span>&lt;</span>k.germanov@accenture.com<span>&gt;</span>
+            </div>
+           </div>
+           <div class="drop-value">
+            <div class="value-name">Германанов Константин</div>
+            <div class="value-role" title="Ведущий специалист по разработке и поддержке программного обеспечения">
+             Ведущий специалист по разработке и поддержке программного обеспечения</div>
+            <div class="value-email" title="k.germanov@accenture.com">
+             <span>&lt;</span>k.germanov@accenture.com<span>&gt;</span>
+            </div>
+           </div>
+           <div class="drop-value">
+            <div class="value-name">Германанов Константин</div>
+            <div class="value-role" title="Ведущий специалист по разработке и поддержке программного обеспечения">
+             Ведещий специалист по разработке и поддержке программного обеспечения</div>
+            <div class="value-email" title="k.germanov@accenture.com">
+             <span>&lt;</span>k.germanov@accenture.com<span>&gt;</span>
+            </div>
+           </div>
+
+
+          </div>
+         </div>
+        </div>
+       </div>
+
+
+
+       <div class="input input-drop">
+        <div class="input-content">
+         <div class="form-input">
+          <input type="text" name="text" id="report-type" autocomplete="off" placeholder="&nbsp;" value="" readonly>
+          <label class="input-label" for="report-type">Тип докладной</label>
+          <span class="focus"></span>
+          <button class="input-icon button-input">
+										<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
+												<path stroke="#A100FF" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="m6 9 6 6 6-6" />
+											</svg></div>
+									</button>
+         </div>
+         <div class="input-tooltype">
+          <div class="tooltype-icon" data-type="info">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M9 9a3 3 0 0 1 6 1c0 2-3 3-3 3M12 17h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-icon" data-type="error">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path fill="#FE6963" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 8v4M12 16h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-content" data-content="info">Руководитель твоего проекта Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.</div>
+          <div class="tooltype-content" data-content="error">Введи имя руководителя</div>
+         </div>
+         <div class="drop-values">
+          <div class="value-elements">
+           <div class="drop-value" tabindex="0">
+            <div class="value-name">Выход в выходной день Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, suscipit?</div>
+           </div>
+           <div class="drop-value" tabindex="0">
+            <div class="value-name">Сверхурочная работа</div>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <div class="to-faq c-e">
+         <a href="#" target="_blank" class="move-to c-s"><span>Типы докладных</span><i
+										class="icon-arrow-right"></i></a>
+        </div>
+       </div>
+
+
+      </div>
+      <div class="form-col c-4">
+       <div class="input input-disabled">
+        <div class="input-content">
+         <div class="form-input">
+          <input type="text" name="text" id="appruver-2" autocomplete="off" placeholder="&nbsp;" value="" disabled>
+          <label class="input-label" for="appruver-2">Подтверждающий заявку (дополнительно)</label>
+          <span class="focus"></span>
+          <button class="clear-input button-input">
+										<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
+												<circle cx="12" cy="12" r="12" fill="#F5F6FA" />
+												<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2"
+													d="m8 8 8.2 8.2M16.2 8 8 16.2" />
+											</svg></div>
+									</button>
+         </div>
+         <div class="input-tooltype">
+          <div class="tooltype-icon" data-type="info">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M9 9a3 3 0 0 1 6 1c0 2-3 3-3 3M12 17h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-icon" data-type="error">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path fill="#FE6963" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 8v4M12 16h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-content" data-content="info">Руководитель твоего проекта Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.</div>
+          <div class="tooltype-content" data-content="error">Введи имя руководителя</div>
+         </div>
+        </div>
+
+       </div>
+
+
+       <div class="input ">
+        <div class="input-content">
+         <div class="form-input">
+          <input type="text" name="text" id="wbs" autocomplete="off" placeholder="&nbsp;" value="">
+          <label class="input-label" for="wbs">WBS</label>
+          <span class="focus"></span>
+          <button class="clear-input button-input">
+										<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
+												<circle cx="12" cy="12" r="12" fill="#F5F6FA" />
+												<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2"
+													d="m8 8 8.2 8.2M16.2 8 8 16.2" />
+											</svg></div>
+									</button>
+         </div>
+         <div class="input-tooltype">
+          <div class="tooltype-icon" data-type="info">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M9 9a3 3 0 0 1 6 1c0 2-3 3-3 3M12 17h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-icon" data-type="error">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path fill="#FE6963" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 8v4M12 16h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-content" data-content="info">Руководитель твоего проекта Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.</div>
+          <div class="tooltype-content" data-content="error">Введи имя руководителя</div>
+         </div>
+        </div>
+        <div class="to-faq c-e">
+         <a href="#" target="_blank" class="move-to c-s"><span>Правила заполнения Wbs</span><i
+										class="icon-arrow-right"></i></a>
+        </div>
+       </div>
+
+
+
+
+
+      </div>
+
+      <div class="bt-form c-4">
+       <div class="input text-aria auto-height">
+        <div class="input-content">
+         <div class="form-input">
+          <textarea name="reason" id="reason"></textarea>
+          <label class="input-label" for="reason">Причина создания докладной</label>
+          <span class="focus"></span>
+          <button class="clear-input button-input">
+										<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
+												<circle cx="12" cy="12" r="12" fill="#F5F6FA" />
+												<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2"
+													d="m8 8 8.2 8.2M16.2 8 8 16.2" />
+											</svg></div>
+									</button>
+         </div>
+         <div class="input-tooltype">
+          <div class="tooltype-icon" data-type="info">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#C6CBD9" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M9 9a3 3 0 0 1 6 1c0 2-3 3-3 3M12 17h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-icon" data-type="error">
+           <div class="icon icon-s c-c">
+            <svg fill="none" viewBox="0 0 24 24">
+												<path fill="#FE6963" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+												<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2" d="M12 8v4M12 16h0" />
+											</svg>
+           </div>
+          </div>
+          <div class="tooltype-content" data-content="info">Руководитель твоего проекта Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные тексты.</div>
+          <div class="tooltype-content" data-content="error">Введи имя руководителя</div>
+         </div>
+        </div>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
      </div>
     </div>
-
-    <div class="input">
-     <div class="input-content">
-      <div class="form-input">
-       <input type="text" name="text" id="id1" autocomplete="off" placeholder="&nbsp;" value="Иванов Иван">
-       <label class="input-label" for="id1">Твое Имя</label>
-       <span class="focus"></span>
-       <button class="clear-input button-input">
-												<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
-														<circle cx="12" cy="12" r="12" fill="#F5F6FA"></circle>
-														<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2" d="m8 8 8.2 8.2M16.2 8 8 16.2">
-														</path>
-													</svg></div>
-											</button>
-      </div>
-     </div>
-    </div>
-
-
-    <div class="input">
-     <div class="input-content">
-      <div class="form-input">
-       <input type="text" name="text" id="id2" autocomplete="off" placeholder="&nbsp;" value="">
-       <label class="input-label" for="id2">Твое Имя</label>
-       <span class="focus"></span>
-       <button class="clear-input button-input">
-												<div class="icon icon-s c-c"><svg fill="none" viewBox="0 0 24 24">
-														<circle cx="12" cy="12" r="12" fill="#F5F6FA"></circle>
-														<path stroke="#8B92A0" stroke-linecap="round" stroke-width="2" d="m8 8 8.2 8.2M16.2 8 8 16.2">
-														</path>
-													</svg></div>
-											</button>
-      </div>
-     </div>
-    </div>
-
    </div>
 
 
   </div>
 
  </body>
+ <script src="./app.js"></script>
 
 </html>
